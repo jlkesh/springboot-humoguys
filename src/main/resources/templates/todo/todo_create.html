@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Todo</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+<head th:include="fragments.html :: header('Todo Create Page')"></head>
 <body>
-<h1>Todo Create</h1>
-<form action="/todo/create" method="post">
-    <div>
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title"/>
+<section th:include="fragments.html :: navbar"></section>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <h1>Todo Create</h1>
+            <form action="/todo/create" method="post">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input class="form-control" type="text" name="title" id="title"/>
+                </div>
+                <input type="submit" class="btn btn-success" value="Save">
+            </form>
+        </div>
     </div>
-    <input type="submit" class="btn-success" value="Save">
-</form>
+</div>
+<section th:include="fragments.html :: js_files"></section>
 </body>
 </html>

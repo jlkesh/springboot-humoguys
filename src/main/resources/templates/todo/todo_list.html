@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
->
-<head>
-    <meta charset="UTF-8">
-    <title>Todo List</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+      xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments.html :: header('Todo List Page')"></head>
 <body>
-<h1 class="redColor">TodoList</h1>
-<a class="btn-success" href="/todo/create">+ Add</a>
+<section th:include="fragments.html :: navbar"></section>
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h1>TodoList</h1>
+            <a class="btn btn-success mb-2" href="/todo/create">+ Add</a>
 
-<table class="table">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>title</th>
-        <th>Done</th>
-        <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="todo,stat: ${todos}" th:object="${todo}">
-        <td th:text="${stat.count}"></td>
-        <td th:text="${todo.title}"></td>
-        <td th:text="${todo.done}"></td>
-        <td>
-            <a class="btn-danger" th:href="@{'/todo/delete/'+ ${todo.id}}">Delete</a> ||
-            <a class="btn-warning" th:href="@{'/todo/update/'+ ${todo.id}}">Update</a>
-        </td>
-    </tr>
-    </tbody>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>title</th>
+                    <th>Done</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="todo,stat: ${todos}" th:object="${todo}">
+                    <td th:text="${stat.count}"></td>
+                    <td th:text="${todo.title}"></td>
+                    <td th:text="${todo.done}"></td>
+                    <td>
+                        <a class="btn btn-danger" th:href="@{'/todo/delete/'+ ${todo.id}}">Delete</a> ||
+                        <a class="btn btn-warning" th:href="@{'/todo/update/'+ ${todo.id}}">Update</a>
+                    </td>
+                </tr>
+                </tbody>
 
-</table>
+            </table>
+        </div>
+    </div>
+</div>
+<section th:include="fragments.html :: js_files"></section>
 </body>
 </html>

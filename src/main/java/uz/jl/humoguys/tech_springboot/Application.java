@@ -13,10 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @SpringBootApplication
 @Controller
@@ -70,14 +67,18 @@ public class Application {
 
     @RequestMapping(value = "/todo/delete/{id}", method = RequestMethod.POST)
     public String todoDelete(@PathVariable String id) {
-        TODOS.removeIf(todo->todo.getId().equals(id));
+        TODOS.removeIf(todo -> todo.getId().equals(id));
         return "redirect:/todo";
     }
 
     @RequestMapping(value = "/todo/update/{id}", method = RequestMethod.GET)
     public String todoUpdatePage(@PathVariable String id, Model model) {
-        Todo searchingTodo = TODOS.stream().filter(todo -> todo.getId().equals(id)).findFirst().get();
-        model.addAttribute("todo", searchingTodo);
+        Optional<Todo> todoOptional = TODOS.stream().filter(todo -> todo.getId().equals(id)).findFirst();
+        if (todoOptional.isEmpty()) {
+            model.addAttribute("error", "Todo not found");
+            return "error/404";
+        }
+        model.addAttribute("todo", todoOptional.get());
         return "todo/todo_update";
     }
 

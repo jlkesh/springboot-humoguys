@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en"
-    xmlns:th="http://www.thymeleaf.org"
+      xmlns:th="http://www.thymeleaf.org"
 >
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+<head th:include="fragments.html :: header('Home Page')"></head>
 <body>
+<section th:include="fragments.html :: navbar"></section>
 <h1 class="redColor">Hello guys</h1>
 <p th:text="${time}"></p>
 <p th:text="${name}"></p>
+<section th:include="fragments.html :: js_files"></section>
 </body>
+
 </html>

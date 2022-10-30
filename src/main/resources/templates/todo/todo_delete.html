@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Update Todo</title>
-</head>
+<head th:include="fragments.html :: header('Todo Delete Page')"></head>
 <body>
 <h1>Todo Delete</h1>
 <h1>Are you sure to delete <span style="color:red" th:text="${todo.title}"></span></h1>
