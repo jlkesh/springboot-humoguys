@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Todo</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Todo Update</h1>
+<form th:action="@{'/todo/update/'+${todo.id}}" method="post">
+    <div>
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" th:field="${todo.title}"/>
+    </div>
+    <div>
+        <label for="done">Done</label>
+        <input type="checkbox" th:checked="${todo.done}" name="done" id="done"/>
+    </div>
+    <input type="submit" class="btn-warning" value="Update">
+</form>
+</body>
+</html>

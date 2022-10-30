@@ -1,0 +1,60 @@
+.redColor {
+    color: darkred;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.table {
+    margin: 10px;
+    border-collapse: collapse;
+}
+
+.table, td, th {
+    border: 1px solid;
+    height: auto;
+}
+
+tr:nth-child(odd) {
+    background-color: aqua;
+
+}
+
+
+.btn-success {
+    background-color: #1d7a03;
+    outline: none;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    font-family: Arial, SansSerif, serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px;
+    display: compact;
+    margin: 10px;
+}
+
+.btn-danger {
+    background-color: darkred;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    font-family: Arial, SansSerif, serif;
+    font-weight: bold;
+    padding: 5px;
+    display: inline-block;
+}
+
+.btn-warning {
+    background-color: #ffa900;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    font-family: Arial, SansSerif, serif;
+    font-weight: bold;
+    padding: 5px;
+    display: inline-block;
+}

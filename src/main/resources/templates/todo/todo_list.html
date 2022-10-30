@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1 class="redColor">TodoList</h1>
+<a class="btn-success" href="/todo/create">+ Add</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>title</th>
+        <th>Done</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="todo,stat: ${todos}" th:object="${todo}">
+        <td th:text="${stat.count}"></td>
+        <td th:text="${todo.title}"></td>
+        <td th:text="${todo.done}"></td>
+        <td>
+            <a class="btn-danger" th:href="@{'/todo/delete/'+ ${todo.id}}">Delete</a> ||
+            <a class="btn-warning" th:href="@{'/todo/update/'+ ${todo.id}}">Update</a>
+        </td>
+    </tr>
+    </tbody>
+
+</table>
+</body>
+</html>

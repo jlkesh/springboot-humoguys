@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Todo</title>
+</head>
+<body>
+<h1>Todo Delete</h1>
+<h1>Are you sure to delete <span style="color:red" th:text="${todo.title}"></span></h1>
+<form th:action="@{'/todo/delete/'+${todo.id}}" method="post">
+    <a class="btn-success" href="/todo">home</a>
+    <input type="submit" class="btn-danger" value="Delete">
+</form>
+</body>
+</html>
